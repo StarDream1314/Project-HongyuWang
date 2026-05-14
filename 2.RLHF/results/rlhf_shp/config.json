@@ -1,0 +1,60 @@
+{
+  "config": {
+    "T": 1000,
+    "ablation_budget": 80,
+    "audit_sweep_n_cal": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      250
+    ],
+    "beta0": 0.0,
+    "beta1": 0.9,
+    "burst_len": 120,
+    "data_dir": "code/data",
+    "delta": 0.05,
+    "drift_iter": 600,
+    "eta": 0.3,
+    "eval_domain": "askphysics",
+    "exp3_rho": 0.25,
+    "exp3_xi_bound": 100.0,
+    "m": 20,
+    "max_features": 8000,
+    "min_df": 2,
+    "n_cal_high": 250,
+    "n_cal_low": 8,
+    "n_mon": 25,
+    "ngram_max": 1,
+    "post_drift_window": 150,
+    "seed_models": 0,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "sigma_judge": 0.08,
+    "smooth_window": 25,
+    "tau": 0.01,
+    "threshold_scale": 2.5,
+    "train_domain": "askphysics",
+    "warmup": 150
+  },
+  "versions": {
+    "matplotlib": "3.7.0",
+    "numpy": "1.24.0",
+    "pandas": "1.5.3",
+    "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:42:35) [MSC v.1942 64 bit (AMD64)]",
+    "scikit_learn": "1.1.3"
+  }
+}

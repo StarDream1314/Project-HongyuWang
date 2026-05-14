@@ -1,0 +1,2 @@
+schedule,seed,dataset_name,task_count,total_cost,avg_cost,success_rate,avg_progress,efficiency,budget_unit,budget_limit,budget_actual,budget_source
+cheap_only,123,scienceworld,90,90,1.0,1.0,0.9977777777777778,1.0,llm_calls,450.0,90.0,runtime_observed

@@ -1,0 +1,6 @@
+category,prompt_mode,method,schedule,result_dir,seeds,rows,success_rate,avg_progress,min_progress,partial_rows,runtime_llm_calls
+main,with_hints,adaptive_ole,adaptive,adaptive,42 123 456,402,0.8532,0.7890,0.3333,208,1206
+main,with_hints,fixed_low,fixed_low,fixed_low,42 123 456,402,0.7512,0.6314,0.3333,380,558
+main,with_hints,cheap_only,cheap_only,cheap_only,42 123 456,402,0.7463,0.6169,0.0000,394,402
+main,with_hints,exp3,exp3,exp3,42 123 456,402,0.7612,0.6177,0.0000,391,560
+main,with_hints,oracle_high,oracle_high,oracle_high,42 123 456,402,0.8408,0.7786,0.0000,213,1206

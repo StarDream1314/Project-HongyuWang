@@ -1,0 +1,43 @@
+{
+  "config": {
+    "T": 1500,
+    "beta0": 0.0,
+    "beta1": 0.8,
+    "burst_len": 120,
+    "delta": 0.05,
+    "drift_iter": 750,
+    "eta": 0.3,
+    "exp3_rho": 0.25,
+    "exp3_xi_bound": 100.0,
+    "m": 20,
+    "n_cal_high": 200,
+    "n_cal_low": 5,
+    "n_mon": 20,
+    "post_drift_window": 200,
+    "seed_models": 0,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "sigma_judge": 0.06,
+    "smooth_window": 25,
+    "tau": 0.005,
+    "threshold_scale": 2.5,
+    "warmup": 200
+  },
+  "versions": {
+    "matplotlib": "3.7.2",
+    "numpy": "1.23.5",
+    "pandas": "2.1.4",
+    "python": "3.11.5 (main, Sep 11 2023, 08:31:25) [Clang 14.0.6 ]",
+    "scikit_learn": "1.3.0"
+  }
+}

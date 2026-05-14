@@ -1,0 +1,14 @@
+# Core stack
+numpy>=2.0,<3
+scipy>=1.11,<2
+scikit-learn>=1.4,<2
+statsmodels>=0.14,<1
+pandas>=2.0,<3
+PyYAML>=6.0,<7
+
+# Plotting
+matplotlib>=3.8,<4
+
+# Embedding backend for --embedder-version st-minilm
+sentence-transformers>=2.5,<4
+torch>=2.2

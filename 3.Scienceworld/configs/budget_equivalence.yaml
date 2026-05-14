@@ -1,0 +1,5 @@
+exact_match:
+  tokens: 450000
+  wall_clock_s: 7200
+scienceworld_family_prior:
+  llm_calls: 6750

@@ -1,0 +1,550 @@
+{
+  "config": {
+    "data_dir": "code/data",
+    "train_domain": "askphysics",
+    "eval_domain": "askhistorians",
+    "max_features": 8000,
+    "ngram_max": 1,
+    "min_df": 2,
+    "seed_models": 0,
+    "m": 20,
+    "T": 1000,
+    "eta": 0.3,
+    "tau": 0.01,
+    "drift_iter": 600,
+    "beta0": 0.0,
+    "beta1": 0.9,
+    "sigma_judge": 0.08,
+    "n_mon": 25,
+    "delta": 0.05,
+    "n_cal_low": 8,
+    "n_cal_high": 250,
+    "warmup": 150,
+    "burst_len": 120,
+    "threshold_scale": 2.5,
+    "audit_sweep_n_cal": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      250
+    ],
+    "ablation_budget": 80,
+    "smooth_window": 25,
+    "post_drift_window": 150,
+    "exp3_rho": 0.25,
+    "exp3_xi_bound": 100.0,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "per_seed": {
+    "0": {
+      "monitor_only": {
+        "final_reward": 0.6867021293497984,
+        "min_post_reward": 0.6837731436909517,
+        "recovery_time": 401,
+        "final_gap": 2.4833164833555226,
+        "total_cal_audits": 0,
+        "total_mon_audits": 25000,
+        "total_audits": 25000
+      },
+      "fixed_low": {
+        "final_reward": 0.6897295781971396,
+        "min_post_reward": 0.6883655137156799,
+        "recovery_time": 148,
+        "final_gap": 0.0057932879919428,
+        "total_cal_audits": 8000,
+        "total_mon_audits": 25000,
+        "total_audits": 33000
+      },
+      "adaptive": {
+        "final_reward": 0.6902288553996127,
+        "min_post_reward": 0.6893283240378039,
+        "recovery_time": 0,
+        "final_gap": 0.0071010231237157,
+        "total_cal_audits": 182240,
+        "total_mon_audits": 25000,
+        "total_audits": 207240
+      },
+      "exp3": {
+        "final_reward": 0.6894717674551957,
+        "min_post_reward": 0.6866820977708441,
+        "recovery_time": 274,
+        "final_gap": 0.0044364401247219,
+        "total_cal_audits": 37876,
+        "total_mon_audits": 25000,
+        "total_audits": 62876
+      },
+      "high": {
+        "final_reward": 0.6899557108522236,
+        "min_post_reward": 0.6885994837506131,
+        "recovery_time": 28,
+        "final_gap": 0.0049175582298059,
+        "total_cal_audits": 250000,
+        "total_mon_audits": 25000,
+        "total_audits": 275000
+      }
+    },
+    "1": {
+      "monitor_only": {
+        "final_reward": 0.6861456638012864,
+        "min_post_reward": 0.6846945192869023,
+        "recovery_time": 401,
+        "final_gap": 2.4781514340707016,
+        "total_cal_audits": 0,
+        "total_mon_audits": 25000,
+        "total_audits": 25000
+      },
+      "fixed_low": {
+        "final_reward": 0.6904063602479907,
+        "min_post_reward": 0.6887641364834013,
+        "recovery_time": 134,
+        "final_gap": 0.0103269645091568,
+        "total_cal_audits": 8000,
+        "total_mon_audits": 25000,
+        "total_audits": 33000
+      },
+      "adaptive": {
+        "final_reward": 0.6892357523473833,
+        "min_post_reward": 0.6882928167098761,
+        "recovery_time": 13,
+        "final_gap": 0.0084897167731796,
+        "total_cal_audits": 124160,
+        "total_mon_audits": 25000,
+        "total_audits": 149160
+      },
+      "exp3": {
+        "final_reward": 0.6903061232510398,
+        "min_post_reward": 0.6887696875052901,
+        "recovery_time": 107,
+        "final_gap": 0.0146612076898721,
+        "total_cal_audits": 38530,
+        "total_mon_audits": 25000,
+        "total_audits": 63530
+      },
+      "high": {
+        "final_reward": 0.6904455715835963,
+        "min_post_reward": 0.6883104180855589,
+        "recovery_time": 52,
+        "final_gap": 0.0087974067997845,
+        "total_cal_audits": 250000,
+        "total_mon_audits": 25000,
+        "total_audits": 275000
+      }
+    },
+    "2": {
+      "monitor_only": {
+        "final_reward": 0.6851580959100371,
+        "min_post_reward": 0.6839992024557129,
+        "recovery_time": 401,
+        "final_gap": 2.4771221707099595,
+        "total_cal_audits": 0,
+        "total_mon_audits": 25000,
+        "total_audits": 25000
+      },
+      "fixed_low": {
+        "final_reward": 0.6896347671154396,
+        "min_post_reward": 0.6883169926797755,
+        "recovery_time": 284,
+        "final_gap": 0.0558911114114726,
+        "total_cal_audits": 8000,
+        "total_mon_audits": 25000,
+        "total_audits": 33000
+      },
+      "adaptive": {
+        "final_reward": 0.6897921612412329,
+        "min_post_reward": 0.6877028091206814,
+        "recovery_time": 63,
+        "final_gap": 0.008263267452425,
+        "total_cal_audits": 127064,
+        "total_mon_audits": 25000,
+        "total_audits": 152064
+      },
+      "exp3": {
+        "final_reward": 0.6903266536382331,
+        "min_post_reward": 0.6879323470516974,
+        "recovery_time": 178,
+        "final_gap": 0.0136954894879153,
+        "total_cal_audits": 38200,
+        "total_mon_audits": 25000,
+        "total_audits": 63200
+      },
+      "high": {
+        "final_reward": 0.6898341073744599,
+        "min_post_reward": 0.6890321170114266,
+        "recovery_time": 36,
+        "final_gap": 0.0060354071168688,
+        "total_cal_audits": 250000,
+        "total_mon_audits": 25000,
+        "total_audits": 275000
+      }
+    },
+    "3": {
+      "monitor_only": {
+        "final_reward": 0.6869127237002474,
+        "min_post_reward": 0.685165956866386,
+        "recovery_time": 401,
+        "final_gap": 2.470908547502062,
+        "total_cal_audits": 0,
+        "total_mon_audits": 25000,
+        "total_audits": 25000
+      },
+      "fixed_low": {
+        "final_reward": 0.6903345984046462,
+        "min_post_reward": 0.6891722264915721,
+        "recovery_time": 0,
+        "final_gap": 0.009514823944299,
+        "total_cal_audits": 8000,
+        "total_mon_audits": 25000,
+        "total_audits": 33000
+      },
+      "adaptive": {
+        "final_reward": 0.6905610433634645,
+        "min_post_reward": 0.6887210970462192,
+        "recovery_time": 203,
+        "final_gap": 0.0090917948628163,
+        "total_cal_audits": 155862,
+        "total_mon_audits": 25000,
+        "total_audits": 180862
+      },
+      "exp3": {
+        "final_reward": 0.6898108335683565,
+        "min_post_reward": 0.6887837861343937,
+        "recovery_time": 0,
+        "final_gap": 0.0105678817995001,
+        "total_cal_audits": 39626,
+        "total_mon_audits": 25000,
+        "total_audits": 64626
+      },
+      "high": {
+        "final_reward": 0.6892038987858646,
+        "min_post_reward": 0.6885258994254426,
+        "recovery_time": 161,
+        "final_gap": 0.0078186464951225,
+        "total_cal_audits": 250000,
+        "total_mon_audits": 25000,
+        "total_audits": 275000
+      }
+    },
+    "4": {
+      "monitor_only": {
+        "final_reward": 0.6868775736426467,
+        "min_post_reward": 0.6841527534984166,
+        "recovery_time": 401,
+        "final_gap": 2.487948097747692,
+        "total_cal_audits": 0,
+        "total_mon_audits": 25000,
+        "total_audits": 25000
+      },
+      "fixed_low": {
+        "final_reward": 0.6905940007876568,
+        "min_post_reward": 0.6892121309778316,
+        "recovery_time": 72,
+        "final_gap": 0.0126551020988463,
+        "total_cal_audits": 8000,
+        "total_mon_audits": 25000,
+        "total_audits": 33000
+      },
+      "adaptive": {
+        "final_reward": 0.6901805046267567,
+        "min_post_reward": 0.6886316589205962,
+        "recovery_time": 20,
+        "final_gap": 0.0049406215376128,
+        "total_cal_audits": 153200,
+        "total_mon_audits": 25000,
+        "total_audits": 178200
+      },
+      "exp3": {
+        "final_reward": 0.6897713725895597,
+        "min_post_reward": 0.6889351276542809,
+        "recovery_time": 198,
+        "final_gap": 0.0035655141307744,
+        "total_cal_audits": 39086,
+        "total_mon_audits": 25000,
+        "total_audits": 64086
+      },
+      "high": {
+        "final_reward": 0.6897388282922166,
+        "min_post_reward": 0.6891016818272626,
+        "recovery_time": 49,
+        "final_gap": 0.0093193530303371,
+        "total_cal_audits": 250000,
+        "total_mon_audits": 25000,
+        "total_audits": 275000
+      }
+    }
+  },
+  "aggregate": {
+    "adaptive": {
+      "final_reward": {
+        "mean": 0.68999966339569,
+        "ci_halfwidth": 0.0006291565596431883,
+        "pretty": "0.6900$\\pm$0.0006",
+        "bootstrap": {
+          "mean": 0.68999966339569,
+          "lo": 0.6896120923293695,
+          "hi": 0.6903520604305823,
+          "pretty_interval": "[0.6896,\\,0.6904]"
+        }
+      },
+      "min_post_reward": {
+        "mean": 0.6885353411670353,
+        "ci_halfwidth": 0.0007409863101661896,
+        "pretty": "0.6885$\\pm$0.0007",
+        "bootstrap": {
+          "mean": 0.6885353411670353,
+          "lo": 0.6880922366657719,
+          "hi": 0.6890496579909209,
+          "pretty_interval": "[0.6881,\\,0.6890]"
+        }
+      },
+      "recovery_time": {
+        "mean": 59.8,
+        "ci_halfwidth": 103.63767075352398,
+        "pretty": "60$\\pm$104",
+        "bootstrap": {
+          "mean": 59.8,
+          "lo": 9.2,
+          "hi": 134.4,
+          "pretty_interval": "[9,\\,134]"
+        },
+        "median": 20.0,
+        "q1": 13.0,
+        "q3": 63.0,
+        "iqr": 50.0,
+        "pretty_robust": "20[13,63]"
+      },
+      "total_cal_audits": {
+        "mean": 148505.2,
+        "ci_halfwidth": 29557.173196113385,
+        "pretty": "148505$\\pm$29557",
+        "bootstrap": {
+          "mean": 148505.2,
+          "lo": 131129.6,
+          "hi": 170624.0,
+          "pretty_interval": "[131130,\\,170624]"
+        }
+      }
+    },
+    "exp3": {
+      "final_reward": {
+        "mean": 0.689937350100477,
+        "ci_halfwidth": 0.0004595302034063419,
+        "pretty": "0.6899$\\pm$0.0005",
+        "bootstrap": {
+          "mean": 0.689937350100477,
+          "lo": 0.6896386386143645,
+          "hi": 0.6902152774693804,
+          "pretty_interval": "[0.6896,\\,0.6902]"
+        }
+      },
+      "min_post_reward": {
+        "mean": 0.6882206092233012,
+        "ci_halfwidth": 0.0011745551338984321,
+        "pretty": "0.6882$\\pm$0.0012",
+        "bootstrap": {
+          "mean": 0.6882206092233012,
+          "lo": 0.6873827536037022,
+          "hi": 0.6888415030165278,
+          "pretty_interval": "[0.6874,\\,0.6888]"
+        }
+      },
+      "recovery_time": {
+        "mean": 151.4,
+        "ci_halfwidth": 128.44352403700987,
+        "pretty": "151$\\pm$128",
+        "bootstrap": {
+          "mean": 151.4,
+          "lo": 64.2,
+          "hi": 235.6,
+          "pretty_interval": "[64,\\,236]"
+        },
+        "median": 178.0,
+        "q1": 107.0,
+        "q3": 198.0,
+        "iqr": 91.0,
+        "pretty_robust": "178[107,198]"
+      },
+      "total_cal_audits": {
+        "mean": 38663.6,
+        "ci_halfwidth": 868.6598269465369,
+        "pretty": "38664$\\pm$869",
+        "bootstrap": {
+          "mean": 38663.6,
+          "lo": 38136.4,
+          "hi": 39194.0,
+          "pretty_interval": "[38136,\\,39194]"
+        }
+      }
+    },
+    "fixed_low": {
+      "final_reward": {
+        "mean": 0.6901398609505746,
+        "ci_halfwidth": 0.0005335686297174614,
+        "pretty": "0.6901$\\pm$0.0005",
+        "bootstrap": {
+          "mean": 0.6901398609505746,
+          "lo": 0.6898080479582898,
+          "hi": 0.6904670640951882,
+          "pretty_interval": "[0.6898,\\,0.6905]"
+        }
+      },
+      "min_post_reward": {
+        "mean": 0.6887662000696521,
+        "ci_halfwidth": 0.0005290031183761459,
+        "pretty": "0.6888$\\pm$0.0005",
+        "bootstrap": {
+          "mean": 0.6887662000696521,
+          "lo": 0.6884258298548624,
+          "hi": 0.6891065702844417,
+          "pretty_interval": "[0.6884,\\,0.6891]"
+        }
+      },
+      "recovery_time": {
+        "mean": 127.6,
+        "ci_halfwidth": 130.65704051162297,
+        "pretty": "128$\\pm$131",
+        "bootstrap": {
+          "mean": 127.6,
+          "lo": 53.360000000000014,
+          "hi": 214.4,
+          "pretty_interval": "[53,\\,214]"
+        },
+        "median": 134.0,
+        "q1": 72.0,
+        "q3": 148.0,
+        "iqr": 76.0,
+        "pretty_robust": "134[72,148]"
+      },
+      "total_cal_audits": {
+        "mean": 8000.0,
+        "ci_halfwidth": 0.0,
+        "pretty": "8000$\\pm$0",
+        "bootstrap": {
+          "mean": 8000.0,
+          "lo": 8000.0,
+          "hi": 8000.0,
+          "pretty_interval": "[8000,\\,8000]"
+        }
+      }
+    },
+    "high": {
+      "final_reward": {
+        "mean": 0.6898356233776722,
+        "ci_halfwidth": 0.0005535180742787199,
+        "pretty": "0.6898$\\pm$0.0006",
+        "bootstrap": {
+          "mean": 0.6898356233776722,
+          "lo": 0.6894803029168555,
+          "hi": 0.6901819300834932,
+          "pretty_interval": "[0.6895,\\,0.6902]"
+        }
+      },
+      "min_post_reward": {
+        "mean": 0.6887139200200608,
+        "ci_halfwidth": 0.00042238014733327815,
+        "pretty": "0.6887$\\pm$0.0004",
+        "bootstrap": {
+          "mean": 0.6887139200200608,
+          "lo": 0.6884691288749157,
+          "hi": 0.6889734162855982,
+          "pretty_interval": "[0.6885,\\,0.6890]"
+        }
+      },
+      "recovery_time": {
+        "mean": 65.2,
+        "ci_halfwidth": 67.58462801212012,
+        "pretty": "65$\\pm$68",
+        "bootstrap": {
+          "mean": 65.2,
+          "lo": 34.4,
+          "hi": 114.2,
+          "pretty_interval": "[34,\\,114]"
+        },
+        "median": 49.0,
+        "q1": 36.0,
+        "q3": 52.0,
+        "iqr": 16.0,
+        "pretty_robust": "49[36,52]"
+      },
+      "total_cal_audits": {
+        "mean": 250000.0,
+        "ci_halfwidth": 0.0,
+        "pretty": "250000$\\pm$0",
+        "bootstrap": {
+          "mean": 250000.0,
+          "lo": 250000.0,
+          "hi": 250000.0,
+          "pretty_interval": "[250000,\\,250000]"
+        }
+      }
+    },
+    "monitor_only": {
+      "final_reward": {
+        "mean": 0.6863592372808032,
+        "ci_halfwidth": 0.0009168469569638593,
+        "pretty": "0.6864$\\pm$0.0009",
+        "bootstrap": {
+          "mean": 0.6863592372808032,
+          "lo": 0.6857065350463291,
+          "hi": 0.6868565448071172,
+          "pretty_interval": "[0.6857,\\,0.6869]"
+        }
+      },
+      "min_post_reward": {
+        "mean": 0.6843571151596739,
+        "ci_halfwidth": 0.0007021042630143535,
+        "pretty": "0.6844$\\pm$0.0007",
+        "bootstrap": {
+          "mean": 0.6843571151596739,
+          "lo": 0.6839249876139376,
+          "hi": 0.6848383184683546,
+          "pretty_interval": "[0.6839,\\,0.6848]"
+        }
+      },
+      "recovery_time": {
+        "mean": 401.0,
+        "ci_halfwidth": 0.0,
+        "pretty": "401$\\pm$0",
+        "bootstrap": {
+          "mean": 401.0,
+          "lo": 401.0,
+          "hi": 401.0,
+          "pretty_interval": "[401,\\,401]"
+        },
+        "median": 401.0,
+        "q1": 401.0,
+        "q3": 401.0,
+        "iqr": 0.0,
+        "pretty_robust": "401[401,401]"
+      },
+      "total_cal_audits": {
+        "mean": 0.0,
+        "ci_halfwidth": 0.0,
+        "pretty": "0$\\pm$0",
+        "bootstrap": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "pretty_interval": "[0,\\,0]"
+        }
+      }
+    }
+  },
+  "ablation": null
+}

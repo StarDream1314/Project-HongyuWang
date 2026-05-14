@@ -1,0 +1,122 @@
+[
+  {
+    "name": "direct_t00",
+    "prompt_family": "direct",
+    "temperature": 0.0,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "direct_t02",
+    "prompt_family": "direct",
+    "temperature": 0.2,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "direct_t04",
+    "prompt_family": "direct",
+    "temperature": 0.4,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "direct_t06",
+    "prompt_family": "direct",
+    "temperature": 0.6,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "direct_t08",
+    "prompt_family": "direct",
+    "temperature": 0.8,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "careful_t00",
+    "prompt_family": "careful",
+    "temperature": 0.0,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "careful_t02",
+    "prompt_family": "careful",
+    "temperature": 0.2,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "careful_t04",
+    "prompt_family": "careful",
+    "temperature": 0.4,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "careful_t06",
+    "prompt_family": "careful",
+    "temperature": 0.6,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "careful_t08",
+    "prompt_family": "careful",
+    "temperature": 0.8,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "reasoned_t00",
+    "prompt_family": "reasoned",
+    "temperature": 0.0,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "reasoned_t02",
+    "prompt_family": "reasoned",
+    "temperature": 0.2,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "reasoned_t04",
+    "prompt_family": "reasoned",
+    "temperature": 0.4,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "reasoned_t06",
+    "prompt_family": "reasoned",
+    "temperature": 0.6,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "reasoned_t08",
+    "prompt_family": "reasoned",
+    "temperature": 0.8,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "minimal_t00",
+    "prompt_family": "minimal",
+    "temperature": 0.0,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "minimal_t02",
+    "prompt_family": "minimal",
+    "temperature": 0.2,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "minimal_t04",
+    "prompt_family": "minimal",
+    "temperature": 0.4,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "minimal_t06",
+    "prompt_family": "minimal",
+    "temperature": 0.6,
+    "model": "deepseek-reasoner"
+  },
+  {
+    "name": "minimal_t08",
+    "prompt_family": "minimal",
+    "temperature": 0.8,
+    "model": "deepseek-reasoner"
+  }
+]

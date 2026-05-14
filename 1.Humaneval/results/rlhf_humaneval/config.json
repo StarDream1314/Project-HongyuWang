@@ -1,0 +1,43 @@
+{
+  "config": {
+    "T": 1000,
+    "audit_sweep_n_cal": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      250
+    ],
+    "burst_len": 120,
+    "delta": 0.05,
+    "drift_iter": 600,
+    "eta": 0.3,
+    "exp3_rho": 0.25,
+    "exp3_xi_bound": 100.0,
+    "hint_frac": 0.2,
+    "n_cal_high": 250,
+    "n_cal_low": 8,
+    "n_mon": 25,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "smooth_window": 25,
+    "tau": 0.01,
+    "threshold_scale": 2.5,
+    "warmup": 150
+  },
+  "versions": {
+    "matplotlib": "3.10.0",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "python": "3.13.0 | packaged by conda-forge | (main, Nov 27 2024, 19:03:49) [MSC v.1942 64 bit (AMD64)]",
+    "scikit_learn": "1.6.1"
+  }
+}

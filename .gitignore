@@ -1,0 +1,28 @@
+# Local secrets
+.env.local
+**/.env.local
+
+# Python cache/build artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Temporary files
+*.tmp
+*.log.tmp
+_tmp_testdata/
+**/_tmp_testdata/
+
+# Local virtual environments
+.venv/
+venv/
+env/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,11 @@
+numpy>=2.0,<3
+pandas>=2.0,<3
+matplotlib>=3.8,<4
+scipy>=1.11,<2
+scikit-learn>=1.4,<2
+statsmodels>=0.14,<1
+PyYAML>=6.0,<7
+
+# Optional for non-hashing embeddings. The migrated validation defaults work
+# without this package unless you explicitly request sentence-transformers.
+# sentence-transformers>=2.5,<4

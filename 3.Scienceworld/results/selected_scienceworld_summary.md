@@ -1,0 +1,16 @@
+# ScienceWorld Final Result Summary
+
+| category | prompt_mode | method | rows | success_rate | avg_progress | min_progress | partial_rows | runtime_llm_calls |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| main | with_hints | adaptive_ole | 270 | 1.0000 | 0.9931 | 0.6000 | 10 | 390 |
+| main | with_hints | fixed_low | 270 | 1.0000 | 0.9868 | 0.5000 | 17 | 378 |
+| main | with_hints | cheap_only | 270 | 1.0000 | 0.9928 | 0.6000 | 13 | 270 |
+| main | with_hints | exp3 | 270 | 1.0000 | 0.9869 | 0.5000 | 14 | 426 |
+| main | with_hints | oracle_high | 270 | 1.0000 | 0.9932 | 0.7000 | 12 | 810 |
+| prompt_ablation | reduced | adaptive_ole | 60 | 0.9667 | 0.8407 | 0.2500 | 34 | 180 |
+| prompt_ablation | reduced | cheap_only | 60 | 0.8500 | 0.7418 | 0.4286 | 42 | 60 |
+| prompt_ablation | reduced | fixed_low | 60 | 0.8833 | 0.7613 | 0.4286 | 48 | 84 |
+| prompt_ablation | reduced | exp3 | 60 | 0.9833 | 0.8191 | 0.4286 | 38 | 108 |
+| prompt_ablation | reduced | oracle_high | 60 | 0.9833 | 0.8343 | 0.4286 | 38 | 180 |
+
+Note: coverage=1.000 is an auxiliary certificate coverage check, not the main performance claim.

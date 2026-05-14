@@ -1,0 +1,2 @@
+schedule,seed,dataset_name,task_count,total_cost,avg_cost,success_rate,avg_progress,efficiency,budget_unit,budget_limit,budget_actual,budget_source
+oracle_high,42,scienceworld,20,80,4.0,0.95,0.7827380952380952,0.2375,llm_calls,2250.0,60.0,runtime_observed
