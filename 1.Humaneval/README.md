@@ -1,4 +1,4 @@
-# A-OMP HumanEval实验
+# HumanEval实验
 
 本仓库是一个基于 HumanEval 的实验，用来验证 two-channel feedback 场景下不同 audit / calibration 预算调度策略对 A-OMP 更新的影响。
 
@@ -217,5 +217,4 @@ humaneval_reward.pdf          # 不同 schedule 的 reward 曲线
 humaneval_discrepancy.pdf     # 不同 schedule 的 xi_sq / discrepancy 曲线
 humaneval_audit_tradeoff.pdf  # 固定 n_cal 与 final-window reward 的成本-性能权衡
 ```
-
 

@@ -1,0 +1,11 @@
+category,prompt_mode,method,schedule,result_dir,seeds,rows,success_rate,avg_progress,min_progress,partial_rows,runtime_llm_calls
+main,with_hints,adaptive_ole,adaptive,adaptive,42 123 456,402,0.8532,0.7890,0.3333,208,1206
+main,with_hints,fixed_low,fixed_low,fixed_low,42 123 456,402,0.7512,0.6314,0.3333,380,558
+main,with_hints,cheap_only,cheap_only,cheap_only,42 123 456,402,0.7463,0.6169,0.0000,394,402
+main,with_hints,exp3,exp3,exp3,42 123 456,402,0.7612,0.6177,0.0000,391,560
+main,with_hints,oracle_high,oracle_high,oracle_high,42 123 456,402,0.8408,0.7786,0.0000,213,1206
+prompt_ablation,reduced,adaptive_ole,adaptive,adaptive-ablation study,42 123 456,402,0.9353,0.8789,0.3333,124,1206
+prompt_ablation,reduced,cheap_only,cheap_only,cheap_only-ablation study,42 123 456,402,0.7363,0.6061,0.0000,397,402
+prompt_ablation,reduced,fixed_low,fixed_low,fixed_low-ablation study,42 123 456,402,0.8706,0.7454,0.0000,261,558
+prompt_ablation,reduced,exp3,exp3,exp3-ablation study,42 123 456,402,0.8433,0.6907,0.0000,317,608
+prompt_ablation,reduced,oracle_high,oracle_high,oracle_high-ablation study,42 123 456,402,0.8060,0.7231,0.0000,263,1206

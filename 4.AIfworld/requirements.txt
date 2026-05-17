@@ -1,0 +1,14 @@
+# Core numeric and experiment utilities
+numpy>=2.0,<3
+scipy>=1.11,<2
+scikit-learn>=1.4,<2
+PyYAML>=6.0,<7
+
+# Result analysis and figure generation
+matplotlib>=3.8,<4
+pandas>=2.0,<3
+statsmodels>=0.14,<1
+
+# Optional: only needed when running with --embedder-version st-minilm.
+# The default hashing embedder and local tests do not require this package.
+# sentence-transformers>=2.5,<6
