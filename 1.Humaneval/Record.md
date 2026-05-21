@@ -37,34 +37,24 @@ tempdir>=0.7,<1
 python-dotenv>=1.0,<2
 ```
 
-已保存的运行环境版本见 `results/rlhf_humaneval/config.json`：
-
-| 组件 | 版本 |
-|---|---|
-| Python | `3.13.0 | packaged by conda-forge | ... [MSC v.1942 64 bit (AMD64)]` |
-| NumPy | `2.1.3` |
-| Pandas | `2.2.3` |
-| Matplotlib | `3.10.0` |
-| scikit-learn | `1.6.1` |
-
 ## 3. 数据与记忆快照
 
 ### 3.1 原始与离线数据
 
-| 文件 | 用途 | SHA256 | 大小 |
-|---|---|---:|---:|
-| `results/data/HumanEval.jsonl.gz` | HumanEval 原始任务 | `b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef` | 44,877 bytes |
-| `results/data/humaneval_solutions.npz` | 主实验离线 pass/fail 张量 | `dbf9fcba60bbc8e42980529df94eea7d42c88b69c727da90f27bac8fb5a3a18f` | 4,378,666 bytes |
+| 文件 | 用途 |
+|---|---|
+| `results/data/HumanEval.jsonl.gz` | HumanEval 原始任务 |
+| `results/data/humaneval_solutions.npz` | 主实验离线 pass/fail 张量 |
 
 `humaneval_solutions.npz` 内部数组：
 
-| 数组 | shape | dtype | 含义 |
-|---|---:|---|---|
-| `pass_fail` | `(20, 164, 1100)` | `uint8` | 20 个策略在 164 道题、最多 1100 个测试上的通过情况 |
-| `test_counts` | `(164,)` | `int32` | 每道题有效测试数 |
-| `strategy_names` | `(20,)` | `<U64` | 策略名称 |
-| `problem_ids` | `(164,)` | `<U64` | HumanEval 题号 |
-| `test_difficulties` | `(164, 1100)` | `float32` | 每个测试在 20 个策略上的平均通过率 |
+| 数组 | shape | 含义 |
+|---|---:|---|
+| `pass_fail` | `(20, 164, 1100)` | 20 个策略在 164 道题、最多 1100 个测试上的通过情况 |
+| `test_counts` | `(164,)` | 每道题有效测试数 |
+| `strategy_names` | `(20,)` | 策略名称 |
+| `problem_ids` | `(164,)` | HumanEval 题号 |
+| `test_difficulties` | `(164, 1100)` | 每个测试在 20 个策略上的平均通过率 |
 
 测试数统计：最少 12，最多 1100，平均 762.4207。题目范围为 `HumanEval/0` 到 `HumanEval/163`。
 
@@ -117,7 +107,7 @@ minimal_t00, minimal_t02, minimal_t04, minimal_t06, minimal_t08
 
 ## 4. 数据划分与采样机制
 
-本实验没有传统训练集 / 验证集 / 测试集划分。164 道 HumanEval 题全部用于构造离线评测矩阵和计算 ground-truth reward。
+164 道 HumanEval 题全部用于构造离线评测矩阵和计算 ground-truth reward。
 
 每轮迭代中的随机性来自以下采样：
 
@@ -138,7 +128,6 @@ drift_iter = 600
 ## 5. 实验配置
 
 配置文件：`results/rlhf_humaneval/config.json`  
-配置 SHA256：`eecf66eaafaf42011ef060bce9990dbfebf83b6cc3cd96f89a00c2e53b979585`
 
 主要配置：
 
@@ -190,7 +179,7 @@ seeds = (0, 1, 2, 3, 4)
    - `rng_cal`
    - `rng_exp3`
 
-因此，只要代码、配置、输入 NPZ 和 NumPy 版本一致，轨迹 CSV 应可复现。
+因此，只要代码、配置、输入 NPZ一致，轨迹 CSV 应可复现。
 
 ## 7. 复现命令
 
@@ -324,7 +313,6 @@ mean_n_cal          = 1000 轮平均 calibration 数
 ### 9.2 Budget sweep 输出
 
 文件：`results/rlhf_humaneval/sweep_results.csv`  
-SHA256：`5405345a9a96bd7cab749e00875f3e4665b87df2babc8064effb7e06c1951aec`  
 行数：40，即 8 个 `n_cal` x 5 个 seed。
 
 | n_cal | final reward mean | std | min | max |
