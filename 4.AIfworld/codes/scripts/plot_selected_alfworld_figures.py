@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 
 
 METHOD_LABELS = {
-    "adaptive_ole": "Adaptive OLE",
+    "adaptive": "Adaptive",
     "fixed_low": "Fixed Low",
     "cheap_only": "Cheap Only",
     "exp3": "EXP3",
@@ -22,15 +22,15 @@ METHOD_LABELS = {
 }
 
 METHOD_COLORS = {
-    "adaptive_ole": "#2E7D32",
+    "adaptive": "#2E7D32",
     "fixed_low": "#4E79A7",
     "cheap_only": "#9C755F",
     "exp3": "#E15759",
     "oracle_high": "#59A14F",
 }
 
-MAIN_ORDER = ["adaptive_ole", "fixed_low", "cheap_only", "exp3", "oracle_high"]
-ABLATION_ORDER = ["adaptive_ole", "fixed_low", "cheap_only", "exp3", "oracle_high"]
+MAIN_ORDER = ["adaptive", "oracle_high", "cheap_only", "fixed_low", "exp3"]
+ABLATION_ORDER = ["adaptive", "oracle_high", "cheap_only", "fixed_low", "exp3"]
 PROMPT_ABLATION_FIGURE = "Figure3-Prompt Ablation-With Hints vs Reduced.pdf"
 
 Row = dict[str, str]
@@ -190,7 +190,7 @@ def plot_llm_calls_vs_progress(rows: list[Row], output_dir: Path) -> Path:
         x_value = _as_int(row, "runtime_llm_calls")
         y_value = _as_float(row, "avg_progress")
         ax.scatter(x_value, y_value, s=95, color=METHOD_COLORS[method], edgecolor="white", linewidth=0.9, zorder=3)
-        offset = (6, -14) if method == "oracle_high" else (6, 8) if method == "adaptive_ole" else (6, 6)
+        offset = (6, -14) if method == "oracle_high" else (6, 8) if method == "adaptive" else (6, 6)
         ax.annotate(METHOD_LABELS[method], (x_value, y_value), textcoords="offset points", xytext=offset, fontsize=9)
 
     ax.set_title("Figure 4: LLM Calls vs Avg Progress", fontsize=14, pad=14)

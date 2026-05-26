@@ -1,0 +1,40 @@
+{
+  "config": {
+    "dataset_name": "alfworld",
+    "extra": {
+      "adaptive_burst_length": 2,
+      "adaptive_n_cal_high": 2,
+      "adaptive_warmup": 5,
+      "alfworld_prompt_mode": "reduced",
+      "alfworld_scoring": "subgoal-token-progress",
+      "backend": "openai",
+      "budget_limit": 2250.0,
+      "budget_unit": "llm_calls",
+      "coverage_anchors": "data\\coverage_anchors_v2.npz",
+      "coverage_radius": null,
+      "embedder_model_name": null,
+      "embedder_version": "hashing",
+      "ole_particles": "certificate\\ole_particles_v2_real_progress_tau995_auto.npz",
+      "phase": "phase2",
+      "result_group": "fixed_low-ablation study",
+      "task_offset": 0,
+      "track": "alfworld",
+      "use_ole_certificate": true
+    },
+    "max_memory_size": 500,
+    "model_id": "gpt-5.2",
+    "n_cal_high": 3,
+    "n_cal_low": 0,
+    "n_mon": 1,
+    "output_dir": "results\\rerun_tau995_b2_n2_reduced\\fixed_low-ablation study\\seed_42\\fixed_low",
+    "schedule": "fixed_low",
+    "seed": 42,
+    "top_k": 3,
+    "trajectory_schema": "phase2"
+  },
+  "versions": {
+    "numpy": "2.1.3",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "python": "3.13.0 | packaged by conda-forge | (main, Nov 27 2024, 19:03:49) [MSC v.1942 64 bit (AMD64)]"
+  }
+}

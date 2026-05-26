@@ -621,6 +621,9 @@ def _run_alfworld_track(
     embedder_device: Optional[str],
     use_ole_certificate: bool,
     ole_particles: Optional[Path],
+    adaptive_warmup: int,
+    adaptive_burst_length: int,
+    adaptive_n_cal_high: int,
     alfworld_prompt_mode: str,
     trajectory_schema: str,
     task_limit: Optional[int],
@@ -685,6 +688,9 @@ def _run_alfworld_track(
                 anchors=anchors,
                 ole_certificate=ole_certificate if method_name == "adaptive" else None,
                 coverage_radius=effective_coverage_radius if method_name == "adaptive" else None,
+                adaptive_warmup=adaptive_warmup,
+                adaptive_burst_length=adaptive_burst_length,
+                adaptive_n_cal_high=adaptive_n_cal_high,
             )
             result_group = _alfworld_result_group(method_name, alfworld_prompt_mode)
             run_dir = _alfworld_run_dir(
@@ -716,6 +722,9 @@ def _run_alfworld_track(
                         "coverage_radius": effective_coverage_radius,
                         "use_ole_certificate": use_ole_certificate,
                         "ole_particles": str(ole_particles) if ole_particles is not None else None,
+                        "adaptive_warmup": adaptive_warmup,
+                        "adaptive_burst_length": adaptive_burst_length,
+                        "adaptive_n_cal_high": adaptive_n_cal_high,
                         "task_offset": task_offset,
                     },
                 ),
@@ -892,6 +901,19 @@ def main() -> None:
         default=None,
         help="Override memory-quality coverage radius; st-minilm defaults to 0.5 when omitted.",
     )
+    parser.add_argument("--adaptive-warmup", type=int, default=5, help="Warmup steps for adaptive scheduler.")
+    parser.add_argument(
+        "--adaptive-burst-length",
+        type=int,
+        default=10,
+        help="Number of tasks covered by one adaptive refinement burst.",
+    )
+    parser.add_argument(
+        "--adaptive-n-cal-high",
+        type=int,
+        default=3,
+        help="Refinement budget used when adaptive scheduler triggers high-cost feedback.",
+    )
     parser.add_argument("--task-limit", type=int, default=None)
     parser.add_argument("--task-offset", type=int, default=0)
     parser.add_argument(
@@ -952,6 +974,9 @@ def main() -> None:
         embedder_device=args.embedder_device,
         use_ole_certificate=args.use_ole_certificate,
         ole_particles=Path(args.ole_particles) if args.ole_particles else None,
+        adaptive_warmup=args.adaptive_warmup,
+        adaptive_burst_length=args.adaptive_burst_length,
+        adaptive_n_cal_high=args.adaptive_n_cal_high,
         alfworld_prompt_mode=args.alfworld_prompt_mode,
         trajectory_schema=trajectory_schema,
         task_limit=args.task_limit,

@@ -1,0 +1,2 @@
+schedule,seed,dataset_name,task_count,total_cost,avg_cost,success_rate,avg_progress,efficiency,budget_unit,budget_limit,budget_actual,budget_source
+oracle_high,456,alfworld,134,536,4.0,1.0,0.9527363184079605,0.25,llm_calls,2250.0,402.0,runtime_observed

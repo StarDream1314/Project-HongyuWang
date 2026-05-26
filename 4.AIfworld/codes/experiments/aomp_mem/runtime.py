@@ -192,6 +192,9 @@ def build_executor(
     anchors: Optional[np.ndarray] = None,
     ole_certificate: Optional[Any] = None,
     coverage_radius: Optional[float] = None,
+    adaptive_warmup: int = 5,
+    adaptive_burst_length: int = 10,
+    adaptive_n_cal_high: int = 3,
 ):
     """Build one ALFWorld experiment executor for a named scheduler.
 
@@ -221,11 +224,11 @@ def build_executor(
             llm_client=llm_client,
             embedder=embedder,
             scheduler=AdaptiveScheduler(
-                warmup=5,
+                warmup=adaptive_warmup,
                 drift_window=5,
                 drift_threshold=0.2,
-                burst_length=10,
-                n_cal_high=3,
+                burst_length=adaptive_burst_length,
+                n_cal_high=adaptive_n_cal_high,
                 anchors=anchors,
                 ole_certificate=ole_certificate,
                 coverage_radius=coverage_radius,

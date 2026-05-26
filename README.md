@@ -9,7 +9,7 @@
 | `1.Humaneval/` | HumanEval 代码生成实验。包含候选代码生成、EvalPlus 评测、`humaneval_solutions.npz` 打包，以及 A-OMP 审计调度对比实验。 |
 | `2.RLHF/` | RLHF 风格实验集合。包含 WDBC、SHP、SHP 跨域、TinyLLM 和 TinyLLM aligned 等实验，用于比较不同 audit schedule 在 cheap feedback 漂移下的表现。 |
 | `3.Scienceworld/` | ScienceWorld 多步交互任务上的 A-OMP-Mem 实验。包含 processed 数据、OLE certificate、调度器、runner、summary 和 PDF 图表。 |
-| `4.AIfworld/` | ALFWorld 任务上的 A-OMP-Mem 实验。结构与 ScienceWorld 类似，额外包含迁移测试和 OLE 重建脚本。 |
+| `4.AIfworld/` | ALFWorld 长期任务流上的 A-OMP-Mem 双通道记忆调度实验。当前默认结果为 `tau995_b2_n2` 新实验，adaptive 使用 OLE certificate、短 burst refinement 和有限高质量反馈预算，在显著降低调用成本的同时接近 oracle_high 效果。 |
 
 每个子项目通常包含：
 
@@ -179,7 +179,27 @@ python codes\scripts\plot_selected_scienceworld_figures.py
 
 ### 4. ALFWorld / AIfworld
 
-当前数据集入口为 `4.AIfworld/data/aomp_mem/processed/alfworld.jsonl`，summary 已保存在 `4.AIfworld/results/selected_alfworld_summary.md`。
+当前数据集入口为 `4.AIfworld/data/aomp_mem/processed/alfworld.jsonl`。默认 summary 和图表均来自：
+
+```text
+4.AIfworld/results/rerun_tau995_b2_n2_main/
+4.AIfworld/results/rerun_tau995_b2_n2_reduced/
+4.AIfworld/results/selected_alfworld_summary.md
+4.AIfworld/results/rerun_tau995_b2_n2_summary_conclusion.md
+```
+
+实验核心参数：
+
+```text
+certificate/ole_particles_v2_real_progress_tau995_auto.npz
+adaptive_burst_length = 2
+adaptive_n_cal_high = 2
+coverage_anchors = data/coverage_anchors_v2.npz
+seeds = 42, 123, 456
+tasks = 134 per seed
+```
+
+主实验复现命令：
 
 ```powershell
 cd .\4.AIfworld
@@ -188,20 +208,42 @@ $env:PYTHONHASHSEED="0"
 
 python -m experiments.aomp_mem.evaluation.runner `
   --track alfworld `
-  --budget-unit llm_calls `
-  --seeds 42 123 456 `
-  --schedulers cheap_only fixed_low exp3 oracle_high adaptive `
   --backend openai `
   --protocol openai `
+  --schedulers adaptive exp3 fixed_low oracle_high cheap_only `
+  --seeds 42 123 456 `
   --coverage-anchors data\coverage_anchors_v2.npz `
   --use-ole-certificate `
-  --ole-particles certificate\ole_particles_v2_real_progress_k18_add050.npz
+  --ole-particles certificate\ole_particles_v2_real_progress_tau995_auto.npz `
+  --adaptive-burst-length 2 `
+  --adaptive-n-cal-high 2 `
+  --request-retries 10 `
+  --retry-backoff-s 5 `
+  --output-root results\rerun_tau995_b2_n2_main
 ```
 
-运行 reduced prompt ablation 时增加：
+Reduced prompt ablation 复现命令：
 
 ```powershell
---alfworld-prompt-mode reduced
+cd .\4.AIfworld
+$env:PYTHONPATH="$PWD\codes"
+$env:PYTHONHASHSEED="0"
+
+python -m experiments.aomp_mem.evaluation.runner `
+  --track alfworld `
+  --backend openai `
+  --protocol openai `
+  --schedulers adaptive exp3 fixed_low oracle_high cheap_only `
+  --seeds 42 123 456 `
+  --coverage-anchors data\coverage_anchors_v2.npz `
+  --use-ole-certificate `
+  --ole-particles certificate\ole_particles_v2_real_progress_tau995_auto.npz `
+  --adaptive-burst-length 2 `
+  --adaptive-n-cal-high 2 `
+  --alfworld-prompt-mode reduced `
+  --request-retries 10 `
+  --retry-backoff-s 5 `
+  --output-root results\rerun_tau995_b2_n2_reduced
 ```
 
 汇总、作图和测试：
@@ -213,6 +255,26 @@ python codes\scripts\plot_selected_alfworld_figures.py
 $env:PYTHONDONTWRITEBYTECODE="1"
 python -m unittest discover -s codes\tests
 ```
+
+当前主实验结果：
+
+| method | rows | success_rate | avg_progress | partial_rows | runtime_llm_calls |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `adaptive` | 402 | 0.8856 | 0.8002 | 202 | 788 |
+| `oracle_high` | 402 | 0.9229 | 0.8375 | 170 | 1608 |
+| `cheap_only` | 402 | 0.7736 | 0.7040 | 289 | 402 |
+| `fixed_low` | 402 | 0.8333 | 0.7172 | 298 | 636 |
+| `exp3` | 402 | 0.7935 | 0.6468 | 352 | 738 |
+
+Reduced prompt ablation：
+
+| method | rows | success_rate | avg_progress | partial_rows | runtime_llm_calls |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `adaptive` | 402 | 0.8905 | 0.7861 | 210 | 798 |
+| `oracle_high` | 402 | 0.7985 | 0.7446 | 232 | 1608 |
+| `cheap_only` | 402 | 0.8184 | 0.7156 | 294 | 402 |
+| `fixed_low` | 402 | 0.8930 | 0.7807 | 235 | 636 |
+| `exp3` | 402 | 0.8383 | 0.7172 | 295 | 690 |
 
 ## 调度方法
 

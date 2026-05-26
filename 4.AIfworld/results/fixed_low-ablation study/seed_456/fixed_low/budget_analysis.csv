@@ -1,2 +1,0 @@
-schedule,seed,dataset_name,task_count,total_cost,avg_cost,success_rate,avg_progress,efficiency,budget_unit,budget_limit,budget_actual,budget_source
-fixed_low,456,alfworld,134,212,1.5820895522388059,0.9029850746268657,0.7873134328358216,0.5707547169811321,llm_calls,6750.0,186.0,runtime_observed

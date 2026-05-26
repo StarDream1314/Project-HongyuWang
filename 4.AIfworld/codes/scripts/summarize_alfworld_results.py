@@ -30,16 +30,40 @@ class ResultSpec:
 
 
 RESULT_SPECS = [
-    ResultSpec("main", "with_hints", "adaptive_ole", "adaptive", "adaptive"),
-    ResultSpec("main", "with_hints", "fixed_low", "fixed_low", "fixed_low"),
-    ResultSpec("main", "with_hints", "cheap_only", "cheap_only", "cheap_only"),
-    ResultSpec("main", "with_hints", "exp3", "exp3", "exp3"),
-    ResultSpec("main", "with_hints", "oracle_high", "oracle_high", "oracle_high"),
-    ResultSpec("prompt_ablation", "reduced", "adaptive_ole", "adaptive-ablation study", "adaptive"),
-    ResultSpec("prompt_ablation", "reduced", "cheap_only", "cheap_only-ablation study", "cheap_only"),
-    ResultSpec("prompt_ablation", "reduced", "fixed_low", "fixed_low-ablation study", "fixed_low"),
-    ResultSpec("prompt_ablation", "reduced", "exp3", "exp3-ablation study", "exp3"),
-    ResultSpec("prompt_ablation", "reduced", "oracle_high", "oracle_high-ablation study", "oracle_high"),
+    ResultSpec("main", "with_hints", "adaptive", "rerun_tau995_b2_n2_main/adaptive", "adaptive"),
+    ResultSpec("main", "with_hints", "oracle_high", "rerun_tau995_b2_n2_main/oracle_high", "oracle_high"),
+    ResultSpec("main", "with_hints", "cheap_only", "rerun_tau995_b2_n2_main/cheap_only", "cheap_only"),
+    ResultSpec("main", "with_hints", "fixed_low", "rerun_tau995_b2_n2_main/fixed_low", "fixed_low"),
+    ResultSpec("main", "with_hints", "exp3", "rerun_tau995_b2_n2_main/exp3", "exp3"),
+    ResultSpec(
+        "prompt_ablation",
+        "reduced",
+        "adaptive",
+        "rerun_tau995_b2_n2_reduced/adaptive-ablation study",
+        "adaptive",
+    ),
+    ResultSpec(
+        "prompt_ablation",
+        "reduced",
+        "oracle_high",
+        "rerun_tau995_b2_n2_reduced/oracle_high-ablation study",
+        "oracle_high",
+    ),
+    ResultSpec(
+        "prompt_ablation",
+        "reduced",
+        "cheap_only",
+        "rerun_tau995_b2_n2_reduced/cheap_only-ablation study",
+        "cheap_only",
+    ),
+    ResultSpec(
+        "prompt_ablation",
+        "reduced",
+        "fixed_low",
+        "rerun_tau995_b2_n2_reduced/fixed_low-ablation study",
+        "fixed_low",
+    ),
+    ResultSpec("prompt_ablation", "reduced", "exp3", "rerun_tau995_b2_n2_reduced/exp3-ablation study", "exp3"),
 ]
 
 
@@ -103,7 +127,10 @@ def summarize_one(root: Path, spec: ResultSpec) -> dict[str, object]:
         if not _looks_like_alfworld(trajectory_rows):
             continue
         seeds.append(seed)
-        total_calls += _as_float(row.get("budget_actual"), _as_float(row.get("total_cost")))
+        # Use the same cost accounting as trajectory cum_cost: cheap call plus
+        # scheduled refinement calls. budget_actual is the backend tracker and
+        # can omit the cheap-channel accounting for high-heavy schedules.
+        total_calls += _as_float(row.get("total_cost"), _as_float(row.get("budget_actual")))
         all_trajectory_rows.extend(trajectory_rows)
 
     if not all_trajectory_rows:
