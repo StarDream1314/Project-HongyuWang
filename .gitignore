@@ -26,3 +26,6 @@ env/
 Thumbs.db
 .vscode/
 .idea/
+
+.gitattributes
+.gitignore
