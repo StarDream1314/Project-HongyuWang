@@ -1,0 +1,97 @@
+{
+  "final_memory_size": 4,
+  "entries": [
+    {
+      "timestamp": 1,
+      "task_input": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span.",
+      "task_output": "open door to outside\ngo to outside\nfocus on crocodile\nwait1",
+      "feedback": {
+        "success": true,
+        "progress": 1.0,
+        "correct_answer": "open door to outside\ngo to outside\nfocus on crocodile\nwait1"
+      },
+      "quality_score": 1.0,
+      "usage_count": 3,
+      "success_count": 4,
+      "metadata": {
+        "channel": "accurate",
+        "task_id": "scienceworld-0",
+        "official_task_name": "lifespan-longest-lived",
+        "kind": "refined-template",
+        "risk_score": 0.7,
+        "cheap_progress": 0.5,
+        "corrected_by_refine": true,
+        "hit_count": 3,
+        "precision_signal": 0.34641016151377546
+      }
+    },
+    {
+      "timestamp": 2,
+      "task_input": "Your task is to find the animal with the longest life span.  The animals are in the 'outside' location.  Focus on the animal with the longest life span.",
+      "task_output": "open door to outside\ngo to outside\nfocus on crocodile\nwait1",
+      "feedback": {
+        "success": true,
+        "progress": 1.0,
+        "correct_answer": "open door to outside\ngo to outside\nfocus on crocodile\nwait1"
+      },
+      "quality_score": 1.0,
+      "usage_count": 1,
+      "success_count": 2,
+      "metadata": {
+        "channel": "cheap",
+        "task_id": "scienceworld-2",
+        "official_task_name": "lifespan-longest-lived",
+        "kind": "cheap-experience",
+        "risk_score": 0.0,
+        "accepted_without_refine": true,
+        "hit_count": 1,
+        "precision_signal": 0.2357022603955158
+      }
+    },
+    {
+      "timestamp": 3,
+      "task_input": "Your task is to find the animal with the longest life span, then the shortest life span. Focus on the animal with the longest life span.  You also need to focus on the animal with the shortest life span. The animals are in the 'outside' location.",
+      "task_output": "open door to outside\ngo to outside\nfocus on crocodile\nfocus on baby baby mouse\nwait1",
+      "feedback": {
+        "success": true,
+        "progress": 1.0,
+        "correct_answer": "open door to outside\ngo to outside\nfocus on crocodile\nfocus on baby baby mouse\nwait1"
+      },
+      "quality_score": 1.0,
+      "usage_count": 1,
+      "success_count": 2,
+      "metadata": {
+        "channel": "accurate",
+        "task_id": "scienceworld-3",
+        "official_task_name": "lifespan-longest-lived-then-shortest-lived",
+        "kind": "refined-template",
+        "risk_score": 0.6,
+        "cheap_progress": 0.8,
+        "corrected_by_refine": true,
+        "hit_count": 1,
+        "precision_signal": 0.11547005383792516
+      }
+    },
+    {
+      "timestamp": 4,
+      "task_input": "Your task is to find the animal with the shortest life span.  The animals are in the 'outside' location.  Focus on the animal with the shortest life span.",
+      "task_output": "open door to outside\ngo to outside\nfocus on crocodile\nfocus on baby baby mouse\nwait1",
+      "feedback": {
+        "success": true,
+        "progress": 1.0,
+        "correct_answer": "open door to outside\ngo to outside\nfocus on baby baby mouse\nwait1"
+      },
+      "quality_score": 1.0,
+      "usage_count": 0,
+      "success_count": 1,
+      "metadata": {
+        "channel": "cheap",
+        "task_id": "scienceworld-6",
+        "official_task_name": "lifespan-shortest-lived",
+        "kind": "cheap-experience",
+        "risk_score": 0.35,
+        "accepted_without_refine": true
+      }
+    }
+  ]
+}
